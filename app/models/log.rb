@@ -1,4 +1,4 @@
 class Log < ApplicationRecord
-  belongs_to :comments
-  validates :, :date_comment, :comment, presence: true
+  belongs_to :comment
+  validates :comment, presence: true
 end

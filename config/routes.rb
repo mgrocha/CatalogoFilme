@@ -3,9 +3,7 @@ Rails.application.routes.draw do
   resources :films
   resources :castfilms
   resources :comments
-
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
+  resources :logs
+  get '/comments/:id/approve', to: 'comments#approve', as: :approve_comment
   root "castfilms#index"
 end

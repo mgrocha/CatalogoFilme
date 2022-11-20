@@ -10,22 +10,15 @@
       </ul>
     </div>
   <% end %>
-
+   
   <div>
-    <%= form.label :description, style: "display: block" %>
+    <%= form.label :film_title, 'Título', style: "display: block" %>
+    <%= form.select(:film_id, @films, {}, {}) %>
+  </div>
+  <div>
+    <%= form.label :description, 'Descrição', style: "display: block" %>
     <%= form.text_area :description %>
   </div>
-
-  <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.check_box :status %>
-  </div>
-
-  <div>
-    <%= form.label :film_id, style: "display: block" %>
-    <%= form.text_field :film_id %>
-  </div>
-
   <div>
     <%= form.submit %>
   </div>

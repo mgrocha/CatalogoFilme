@@ -1,7 +1,9 @@
 class Film < ApplicationRecord
     has_many :comments
     has_many :castfilms
-    has_many :author, through: :castfilms
+    has_many :authors, through: :castfilms
+    accepts_nested_attributes_for :castfilms
+
     
     validates :title , :releaseyear, presence: true
     validates :title, uniqueness: true, length: {maximum: 200}

@@ -13,6 +13,7 @@ class FilmsController < ApplicationController
   # GET /films/new
   def new
     @film = Film.new
+    @film.castfilms.build
   end
 
   # GET /films/1/edit
@@ -23,8 +24,17 @@ class FilmsController < ApplicationController
   def create
     @film = Film.new(film_params)
 
+    @startcount=1  
+    @film.castfilms.each do |m|
+      m.author_id = film_params[:castfilms_attributes]["0"][:author_id][@startcount]
+      @startcount +=1
+    end 
     respond_to do |format|
       if @film.save
+        film_params[:castfilms_attributes]["0"][:author_id].drop(@startcount).each do |m|
+          @film.castfilms.build(:author_id => film_params[:castfilms_attributes]["0"][:author_id][@startcount]).save
+          @startcount += 1
+      end
         format.html { redirect_to film_url(@film), notice: "Film was successfully created." }
         format.json { render :show, status: :created, location: @film }
       else
@@ -65,6 +75,6 @@ class FilmsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def film_params
-      params.require(:film).permit(:title, :releaseyear)
+      params.require(:film).permit(:title, :releaseyear, castfilms_attributes: [author_id: [] ])
     end
 end
