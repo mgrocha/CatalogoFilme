@@ -1,4 +1,5 @@
 class Castfilm < ApplicationRecord
-  belongs_to :author
-  belongs_to :film
+  belongs_to :authors
+  belongs_to :films
+  validates :author, :film, presence: true
 end
