@@ -1,14 +1,21 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Films</h1>
-
-<div id="films">
-  <% @films.each do |film| %>
-    <%= render film %>
-    <p>
-      <%= link_to "Show this film", film %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New film", new_film_path %>
+<h3>Lista de Filmes</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Ano de lançamento</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @films.each do |film| %>
+      <tr>
+        <td><%= film.title %></td>
+        <td><%= film.releaseyear%></td>
+        <td><%= link_to "Detalhe sobre filme", film %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to "Cadastrar novo filme", new_film_path %>

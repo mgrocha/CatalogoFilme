@@ -12,11 +12,11 @@
   <% end %>
    
   <div>
-    <%= form.label :film_title, 'Título', style: "display: block" %>
+    <%= form.label :film_title, 'Selecione o filme', style: "display: block" %>
     <%= form.select(:film_id, @films, {}, {}) %>
   </div>
   <div>
-    <%= form.label :description, 'Descrição', style: "display: block" %>
+    <%= form.label :description, 'Comentário', style: "display: block" %>
     <%= form.text_area :description %>
   </div>
   <div>

@@ -13,4 +13,9 @@ class Author < ApplicationRecord
     with: /(19|20)\d{2}/i, 
     message: "deve ser um ano de quatro dígitos"
     }
+
+    before_destroy :remove_auhor
+    def remove_auhor
+        Castfilm.where(author_id: id).destroy_all
+    end
 end

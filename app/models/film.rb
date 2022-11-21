@@ -14,5 +14,9 @@ class Film < ApplicationRecord
     with: /(19|20)\d{2}/i, 
     message: "deve ser um ano de quatro dígitos"
     }
+    before_destroy :remove_film
+    def remove_film
+        Castfilm.where(film_id: id).destroy_all
+    end
 
 end

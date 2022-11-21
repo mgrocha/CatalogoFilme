@@ -1,14 +1,17 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Logs</h1>
-
-<div id="logs">
-  <% @logs.each do |log| %>
-    <%= render log %>
-    <p>
-      <%= link_to "Show this log", log %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New log", new_log_path %>
+<h3>Logs dos comentário aprovados</h3>
+<table>
+  <thead>
+    <tr>
+      <th>ID do comentário#</th>
+      <th>data de aprovação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @logs.each do |log| %>
+      <tr>
+        <td><%= log.comment_id %></td>
+        <td><%= log.created_at%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

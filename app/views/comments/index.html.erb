@@ -1,14 +1,27 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Comments</h1>
+<h3>Comentários não aprovados</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Filme</th>
+      <th>Status</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comments.each do |comment| %>
+      <% if comment.status == false %>
+      <tr>
+        <td><%= comment.film.title %></td>
+        <td><%= comment.status%></td>
+        <td><%= link_to "Ver Detalhe", comment %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to "Cadastra novo comentário", new_comment_path %>
 
-<div id="comments">
-  <% @comments.each do |comment| %>
-    <%= render comment %>
-    <p>
-      <%= link_to "Show this comment", comment %>
-    </p>
-  <% end %>
-</div>
 
-<%= link_to "New comment", new_comment_path %>
+

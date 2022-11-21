@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   resources :authors
   resources :films
-  resources :castfilms
   resources :comments
-  resources :logs
+  resources :logs, only: [:index]
   get '/comments/:id/approve', to: 'comments#approve', as: :approve_comment
-  root "castfilms#index"
+  root "films#index"
 end
