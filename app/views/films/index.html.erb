@@ -3,7 +3,6 @@
   <thead>
     <tr>
       <th>Título</th>
-      <th>Ano de lançamento</th>
       <th>Ações</th>
     </tr>
   </thead>
@@ -11,8 +10,7 @@
     <% @films.each do |film| %>
       <tr>
         <td><%= film.title %></td>
-        <td><%= film.releaseyear%></td>
-        <td><%= link_to "Detalhe sobre filme", film %></td>
+        <td><%= link_to "|Detalhe sobre filme|", film %></td>
       </tr>
     <% end %>
   </tbody>

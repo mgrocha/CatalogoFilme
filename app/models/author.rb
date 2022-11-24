@@ -6,6 +6,7 @@ class Author < ApplicationRecord
     validates :name , :email, :birthyear, presence: true
     validates :name , length: { minimum: 2 }
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+    validates :email, uniqueness: true
 
     validates :birthyear, 
     inclusion: { in: 1900..Date.today.year },

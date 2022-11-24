@@ -64,9 +64,6 @@ class CommentsController < ApplicationController
     @comment.status = true
     respond_to do |format|
     if @comment.save
-        @log = Log.new()
-        @log.comment_id = @comment.id
-        @log.save
     format.html { redirect_to comments_url, notice: "Comentário aprovado com sucesso." }
     format.json { head :no_content }
     else
