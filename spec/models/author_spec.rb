@@ -48,9 +48,9 @@ RSpec.describe Author, type: :model do
     it "é inválido caso já exista um e-mail igual" do
       author = Author.create( name: 'Maria', 
       email: 'maria@gmail.com', birthyear: 1990 ) 
-      author = Author.new( name: 'Pedro', 
+      author1 = Author.create( name: 'Pedro', 
       email: 'maria@gmail.com',birthyear: 1994) 
-      expect(author).to_not be_valid
+      expect(author1).to_not be_valid
     end
   end
 

@@ -12,10 +12,10 @@ RSpec.describe Film, type: :model do
 
   describe 'Valid Title como único' do
     it "Title válido" do
-      @film = Film.new
-      @film.title = "Homem aranha"
-      @film.releaseyear = 1999
-      expect(@film).to_not be_valid
+      film1 = Film.create
+      film1.title = "Homem aranha"
+      film1.releaseyear = 1999
+      expect(film1).to_not be_valid
     end
   end
 
